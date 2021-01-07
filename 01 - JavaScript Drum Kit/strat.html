@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drum kit</title>
+    <link rel="stylesheet" href="../../../reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.onload = function() {
+            function playSound(event) {
+                const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`); // 根据触发按键的键码，获取对应音频
+                const key = document.querySelector(`div[data-key="${event.keyCode}"]`); // 获取页面对应按钮 DIV 元素
+                if (!audio) return; // 处理无效的按键事件
+
+                key.classList.add('playing'); // 改变样式
+                audio.currentTime = 0; // 每次播放之后都使音频播放进度归零
+                audio.play(); // 播放相应音效
+            }
+
+            function removeTransition(event) {
+                const box = document.querySelector(`div[data-key="${event.keyCode}"]`);
+                box.classList.remove('playing'); // 移除高亮的样式
+            }
+
+            window.addEventListener('keydown', playSound);
+            window.addEventListener('keyup', removeTransition);
+        }
+    </script>
+</head>
+<body>
+<div class="contain">
+    <div data-key="65" class="box">
+        <div class="key">A</div>
+        <div class="note">CLAP</div>
+    </div>
+    <div data-key="83" class="box">
+        <div class="key">S</div>
+        <div class="note">HIHAT</div>
+    </div>
+    <div data-key="68" class="box">
+        <div class="key">D</div>
+        <div class="note">KICK</div>
+    </div>
+    <div data-key="70" class="box">
+        <div class="key">F</div>
+        <div class="note">OPENHAT</div>
+    </div>
+    <div data-key="71" class="box">
+        <div class="key">G</div>
+        <div class="note">BOOM</div>
+    </div>
+    <div data-key="72" class="box">
+        <div class="key">H</div>
+        <div class="note">RIDE</div>
+    </div>
+    <div data-key="74" class="box">
+        <div class="key">J</div>
+        <div class="note">SNARE</div>
+    </div>
+    <div data-key="75" class="box">
+        <div class="key">K</div>
+        <div class="note">TOM</div>
+    </div>
+    <div data-key="76" class="box">
+        <div class="key">L</div>
+        <div class="note">TINK</div>
+    </div>
+</div>
+<audio data-key="65" src="sounds/clap.wav"></audio>
+<audio data-key="83" src="sounds/hihat.wav"></audio>
+<audio data-key="68" src="sounds/kick.wav"></audio>
+<audio data-key="70" src="sounds/openhat.wav"></audio>
+<audio data-key="71" src="sounds/boom.wav"></audio>
+<audio data-key="72" src="sounds/ride.wav"></audio>
+<audio data-key="74" src="sounds/snare.wav"></audio>
+<audio data-key="75" src="sounds/tom.wav"></audio>
+<audio data-key="76" src="sounds/tink.wav"></audio>
+</body>
+</html>
