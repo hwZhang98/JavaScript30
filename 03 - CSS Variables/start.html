@@ -3,8 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../../../reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.onload = function() {
+            function change_value(){
+                const i = this.value.includes('#')?" ":"px";
+                const value = this.value + i;
+                document.documentElement.style.setProperty(`--${this.name}`, value);
+                const node = document.querySelector(`span[class="${this.name}"]`);
+                const txt_node = document.createTextNode(`${value}`);
+                const k  = node.lastChild
+                node.replaceChild(txt_node,node.lastChild);
+                console.log
+            }
+            const inputs = [...document.getElementsByTagName('input')];
+            inputs.forEach(input => input.addEventListener('mousemove',change_value));
+            inputs.forEach(input => input.addEventListener('change',change_value));
+            console.log()
+        }
+
+    </script>
 </head>
 <body>
 
+<div class="container">
+    <div class="title">
+        <span>Upadate CSS Variables with</span>
+        <span class="title_color">JS</span>
+    </div>
+    <div class="slide">
+        <label for="spacing">Spacing:</label>
+        <input type="range" name="spacing" min="10" max="200" value="10" id="spacing">
+
+        <label for="blur">Blur:</label>
+        <input type="range" name="blur" min="0" max="25" value="0" id="blur">
+
+        <label for="base">Base Color</label>
+        <input type="color" name="base" value="#ffc600" id="base">
+    </div>
+    <div class="parameter">
+        img { padding: <span class="spacing"> </span>; filter: blur(<span class="blur"> </span>);
+        background: <span class="base"> </span>;}
+    </div>
+
+    <img src="photo-1465188162913-8fb5709d6d57.jpg" alt="">
+
+</div>
 </body>
 </html>

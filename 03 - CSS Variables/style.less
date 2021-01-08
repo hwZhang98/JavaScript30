@@ -1,0 +1,44 @@
+:root{
+  --spacing: 10px;
+  --blur: 0px;
+  --base: #ffc600;
+}
+body{
+  background-color:#3B5998;
+  .container{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+    text-align: center;
+    color: white;
+    .title{
+      .title_color{
+        color:var(--base);
+      }
+      margin-top:10px;
+      margin-bottom:20px;
+      font-size:30px;
+      font-weight:bold;
+    }
+    .slide{
+      input{
+        width:100px;
+      }
+      font-size:22px;
+      margin: 5px 0;
+    }
+    .parameter{
+      margin-bottom:20px;
+      font-size:18px;
+      letter-spacing:2px;
+      .padding{
+
+      }
+    }
+    img{
+      border:var(--spacing) solid;
+      border-color: var(--base);
+      filter: blur(var(--blur));
+    }
+  }
+}
