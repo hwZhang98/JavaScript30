@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.onload = function(){
+            // 数据网站 ，可能要有外网才能连上
+            const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+            const cities = [];
+            fetch(endpoint)
+                .then(blob => blob.json())
+                .then(data => cities.push(...data));
+
+            function findWord(word,cities){
+                // 返回一个列表
+                const R = new RegExp(word,'gi');
+                return cities.filter(city => {
+                     return city.city.match(R) || city.state.match(R);
+                })
+            }
+
+            function showSuggestion(){
+                const suggestion = findWord(this.value,cities);
+
+                const showhtml = suggestion.map(city => {
+                    const R = new RegExp(this.value,'gi');
+                    // 高亮提示功能
+                    const cityname = city.city.replace(R,`<span class="high">${this.value}</span>`);
+                    const statename = city.state.replace(R,`<span class="high">${this.value}</span>`);
+                    return `<li><span class="city">${cityname},${statename}</span><span class="population">${city.population}</span></li>`
+                });
+                const a = showhtml.join("\n");
+                suggestionShowBox.innerHTML = a;
+            }
+
+            const search = document.getElementsByTagName("input")[0];
+            const suggestionShowBox = document.getElementsByTagName("ul")[0]
+            search.addEventListener("change",showSuggestion);
+            search.addEventListener('keyup', showSuggestion);
+        }
+    </script>
+</head>
+<body>
+<form class="search">
+    <input type="text" placeholder="city or statement" class="search">
+    <ul class="suggestion">
+        <li>search the city</li>
+        <li>or statement</li>
+    </ul>
+</form>
+</body>
+</html>

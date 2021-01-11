@@ -1,0 +1,55 @@
+@input_height: 80px;
+
+html{
+  background-color: rgb(117, 133, 181);
+  form{
+    margin: 50px auto;
+    text-align: center;
+    input{
+      text-align: center;
+      margin: 0;
+      color: black;
+      width:40%;
+      height:@input_height;
+      font-size: @input_height*0.5;
+      border: none;
+      outline: none;
+      box-shadow: 0 0 2px 2px rgb(86, 108, 185);
+      z-index: 2;
+      position:relative;
+    }
+    .suggestion{
+      position:relative;
+      & li {
+        position: relative;
+        display: flex;
+        color: gray;
+        background: white;
+        margin: 0 auto;
+        width: 32%;
+        justify-content: space-between;
+        line-height: @input_height*0.7;
+        height: @input_height*0.7;
+        &:nth-child(even){
+          // perspective 视距 必须每个元素都定义，放在外面会报错
+          transform:  perspective(200px) rotateX(-15deg) translateY(2px);
+        }
+        &:nth-child(odd){
+          transform:  perspective(200px) rotateX(15deg);
+        }
+        span {
+          font-size: 15px;
+        }
+        span.high {
+          color: rgb(87, 201, 195);
+        }
+        span.city{
+          margin-left:30px;
+        }
+        span.population{
+          margin-right:30px;
+        }
+      }
+    }
+  }
+}
