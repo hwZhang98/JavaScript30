@@ -1,0 +1,42 @@
+:root {
+  --spacing: 10px;
+  --blur: 0px;
+  --base: #ffc600;
+}
+body {
+  background-color: #3B5998;
+}
+body .container {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 50px;
+  text-align: center;
+  color: white;
+}
+body .container .title {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: bold;
+}
+body .container .title .title_color {
+  color: var(--base);
+}
+body .container .slide {
+  font-size: 22px;
+  margin: 5px 0;
+}
+body .container .slide input {
+  width: 100px;
+}
+body .container .parameter {
+  margin-bottom: 20px;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+body .container img {
+  border: var(--spacing) solid;
+  border-color: var(--base);
+  filter: blur(var(--blur));
+}
+/*# sourceMappingURL=style.css.map */

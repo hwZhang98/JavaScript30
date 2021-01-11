@@ -1,0 +1,53 @@
+html {
+  background-color: #7585b5;
+}
+html form {
+  margin: 50px auto;
+  text-align: center;
+}
+html form input {
+  text-align: center;
+  margin: 0;
+  color: black;
+  width: 40%;
+  height: 80px;
+  font-size: 40px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 2px 2px #566cb9;
+  z-index: 2;
+  position: relative;
+}
+html form .suggestion {
+  position: relative;
+}
+html form .suggestion li {
+  position: relative;
+  display: flex;
+  color: gray;
+  background: white;
+  margin: 0 auto;
+  width: 32%;
+  justify-content: space-between;
+  line-height: 56px;
+  height: 56px;
+}
+html form .suggestion li:nth-child(even) {
+  transform: perspective(200px) rotateX(-15deg) translateY(2px);
+}
+html form .suggestion li:nth-child(odd) {
+  transform: perspective(200px) rotateX(15deg);
+}
+html form .suggestion li span {
+  font-size: 15px;
+}
+html form .suggestion li span.high {
+  color: #57c9c3;
+}
+html form .suggestion li span.city {
+  margin-left: 30px;
+}
+html form .suggestion li span.population {
+  margin-right: 30px;
+}
+/*# sourceMappingURL=style.css.map */
