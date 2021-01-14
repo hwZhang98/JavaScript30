@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.onload = function(){
+            let i = 0
+            const inputs = [...document.querySelectorAll('input')];
+            inputs.forEach( input =>{
+                input.index  = i++;
+                input.addEventListener('click', selectInput);
+            });
+
+            function selectInput(event){
+               if (this.checked){
+                   if(event.shiftKey){
+                   //    说明按下shift 去寻找上一个 选中input
+                       for(let i = this.index-1;i>=0;i--){
+                           if (inputs[i].checked){
+                               for(let j = i;j<this.index;j++){
+                                   inputs[j].checked = true;
+                               }
+                               break;
+                           }
+                        }
+                    }
+               }
+            }
+        }
+    </script>
+</head>
+<body>
+<!--实现功能，按着shift 点击，则会将点击按钮和前面一个点击按钮之间的所有项，选中（多选） -->
+<div class="inbox">
+    <div class="item">
+        <input type="checkbox">
+        <div>This is an inbox layout.</div>
+    </div>
+    <div class="item">
+        <input type="checkbox">
+        <div>Check one item</div>
+    </div>
+    <div class="item">
+        <input type="checkbox">
+        <div>Hold down your Shift key</div>
+    </div>
+    <div class="item">
+        <input type="checkbox">
+        <div>Check a lower item</div>
+    </div>
+    <div class="item">
+        <input type="checkbox">
+        <div>Everything inbetween should also be set to checked</div>
+    </div>
+    <div class="item">
+        <input type="checkbox">
+        <div>Try do it with out any libraries</div>
+    </div>
+    <div class="item">
+        <input type="checkbox">
+        <div>Just regular JavaScript</div>
+    </div>
+    <div class="item">
+        <input type="checkbox">
+        <div>Good Luck!</div>
+    </div>
+    <div class="item">
+        <input type="checkbox">
+        <div>Don't forget to tweet your result!</div>
+    </div>
+</div>
+
+</body>
+</html>

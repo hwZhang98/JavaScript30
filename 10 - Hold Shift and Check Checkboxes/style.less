@@ -1,0 +1,32 @@
+html{
+  background: #ffd043;
+  box-sizing: border-box;
+  .inbox{
+    margin:50px auto;
+    width:30%;
+    background-color:white;
+    box-shadow:10px 10px 5px rgba(119, 108, 108, 0.3);
+    border-radius:10px;
+    .item{
+      font-size: 20px;
+      font-weight: 200;
+      display:flex;
+      min-height:50px;
+      align-items: center;
+      line-height:30px;
+      border-bottom: 1px solid #dbd9d9;
+      &:last-child{
+        border-bottom:0;
+      }
+      input{
+        margin:20px;
+      }
+      div{
+        border-left: 1px solid #b4c9e9;
+        flex: 1;
+        padding: 20px;
+        margin: 0;
+      }
+    }
+  }
+}
