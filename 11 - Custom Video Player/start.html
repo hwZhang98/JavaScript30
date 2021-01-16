@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_2131106_3qxmd10jec4.css">
+</head>
+<body>
+    <div class="playerContain">
+        <video src="video.mp4">The video is gone.</video>
+        <div class="progressBar">
+            <!--进度条-->
+            <div class="progress"></div>
+        </div>
+        <div class="controlContain">
+            <!--播放 暂停-->
+            <button class="iconfont play">&#xe618</button>
+            <!--音量 控制-->
+            <div class="volumeContain">
+                <span class="volumeIcon iconfont">&#xe757</span>
+                <input type="range" class="volume" min="0" max="100" value="30">
+            </div>
+            <!--倍速-->
+            <div class="speedContain">
+                <span class="speedNum iconfont">&#xe65d</span>
+                <input type="range" class="speed" min="0.5" max="2" value="1" step="0.1">
+            </div>
+            <div class="skip">
+                <button data-skip="-10" class="skipRear">« 10s</button>
+                <button data-skip="10" class="skipFront">10s »</button>
+            </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

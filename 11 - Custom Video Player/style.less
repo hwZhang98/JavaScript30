@@ -1,0 +1,68 @@
+html{
+  background:linear-gradient(to bottom right, #aa00ff, #ff8800);
+  min-height:100vh;
+  .playerContain{
+    margin: 200px auto;
+    width: 900px;
+    box-shadow: 0 0  10px black;
+    border-radius:10px;
+    video{
+      width: 100%;
+      border-radius:inherit;
+      border-bottom-left-radius:0;
+      border-bottom-right-radius:0;
+    }
+    .progressBar{
+      width: 100%;
+      height: 20px;
+      background-color:rgba(0, 0, 0,.5);
+      .progress{
+        width: 50%;
+        height:100%;
+        margin: 0;
+        padding:0;
+        background:linear-gradient(to bottom right, #aa00ff, #ff8800);
+      }
+    }
+    .controlContain{
+      display:flex;
+      color:black;
+      font-size:20px;
+      justify-content:space-between;
+      .play{
+        border:0;
+        outline:none;
+        color: #0059ff;
+        //背景颜色清掉
+        background-color: transparent;
+        &:hover{
+          color:yellow;
+        }
+      }
+      span{
+        font-weight: bold;
+      }
+      .volumeContain{
+        width:30%;
+        input{
+          width:90%;
+        }
+      }
+      .speedContain{
+        width:30%;
+        input{
+          width:90%;
+        }
+      }
+      .skip button{
+        border:0;
+        outline:none;
+        font-weight: 500;
+        background-color: transparent;
+        &:hover{
+          color:yellow;
+        }
+      }
+    }
+  }
+}
