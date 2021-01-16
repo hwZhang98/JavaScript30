@@ -1,0 +1,68 @@
+html {
+  background: linear-gradient(to bottom right, #aa00ff, #ff8800);
+  min-height: 100vh;
+}
+html .playerContain {
+  margin: 200px auto;
+  width: 900px;
+  box-shadow: 0 0  10px black;
+  border-radius: 10px;
+}
+html .playerContain video {
+  width: 100%;
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+html .playerContain .progressBar {
+  width: 100%;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+html .playerContain .progressBar .progress {
+  width: 50%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom right, #aa00ff, #ff8800);
+}
+html .playerContain .controlContain {
+  display: flex;
+  color: black;
+  font-size: 20px;
+  justify-content: space-between;
+}
+html .playerContain .controlContain .play {
+  border: 0;
+  outline: none;
+  color: #0059ff;
+  background-color: transparent;
+}
+html .playerContain .controlContain .play:hover {
+  color: yellow;
+}
+html .playerContain .controlContain span {
+  font-weight: bold;
+}
+html .playerContain .controlContain .volumeContain {
+  width: 30%;
+}
+html .playerContain .controlContain .volumeContain input {
+  width: 90%;
+}
+html .playerContain .controlContain .speedContain {
+  width: 30%;
+}
+html .playerContain .controlContain .speedContain input {
+  width: 90%;
+}
+html .playerContain .controlContain .skip button {
+  border: 0;
+  outline: none;
+  font-weight: 500;
+  background-color: transparent;
+}
+html .playerContain .controlContain .skip button:hover {
+  color: yellow;
+}
+/*# sourceMappingURL=style.css.map */
