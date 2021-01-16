@@ -6,6 +6,15 @@ html{
     width: 900px;
     box-shadow: 0 0  10px black;
     border-radius:10px;
+    &:hover
+    {
+      .controlContain{
+        display: flex;
+      }
+      .progressBar{
+        height:20px;
+      }
+    }
     video{
       width: 100%;
       border-radius:inherit;
@@ -14,7 +23,7 @@ html{
     }
     .progressBar{
       width: 100%;
-      height: 20px;
+      height: 5px;
       background-color:rgba(0, 0, 0,.5);
       .progress{
         width: 50%;
@@ -25,9 +34,11 @@ html{
       }
     }
     .controlContain{
-      display:flex;
+      display:none;
+      height:30px;
       color:black;
       font-size:20px;
+      align-items:center;
       justify-content:space-between;
       .play{
         border:0;
