@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_2131106_prit7cozyu.css">
+
+    <script>
+        window.onload = function () {
+            // 已添加菜单显示ul
+            const itemsList = document.querySelector('.items');
+            const add_items = document.querySelector('.add-items');
+            const items = JSON.parse(localStorage.getItem('items')) || [];
+
+            function addItem(e){
+                e.preventDefault;
+                //获取输入框文本
+                const text = (this.querySelector("[name=item]")).value;
+                const item = {
+                    text,
+                    done:false
+                };
+                items.push(item);
+                // 更新list 与页面
+                populateList(items, itemsList);
+                // stringfy 可以将object 转化为字符串后存储
+                localStorage.setItem('items', JSON.stringify(items));
+                // 表单重置
+                this.reset();
+            }
+
+            function populateList(items, itemsList){
+                itemsList.innerHTML = items.map((item,i) =>{
+                    return `<li>
+                                <input type="checkbox" data-index=${i} id="item${i}" ${item.done ? 'checked' : ''} />
+                                <label for="item${i}">${item.text}</label>
+                            </li>`;
+                }).join("");
+            }
+
+            function toggleDone(e) {
+                if(!e.target.matches('input')) return;
+                const el = e.target;
+                const index = el.dataset.index;
+                items[index].done = !items[index].done;
+                localStorage.setItem('items', JSON.stringify(items));
+                populateList(items, itemsList);
+            }
+
+            add_items.addEventListener('submit',addItem);
+            itemsList.addEventListener('click',toggleDone);
+            // 初始化
+            populateList(items, itemsList);
+        }
+
+    </script>
+</head>
+<body>
+    <div class="iconfont icon-yu"></div>
+    <div class="wrapper">
+        <h2>LOCAL TAPAS</h2>
+        <ul class="items">
+        </ul>
+        <form class="add-items">
+            <input type="text" name="item" placeholder="Item Name" required>
+            <input type="submit" value="+ Add Item">
+        </form>
+    </div>
+
+</body>
+</html>
