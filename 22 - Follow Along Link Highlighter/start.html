@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.onload = function () {
+            const all_li = [...document.getElementsByTagName('li')];
+            const highlight_div = document.createElement('div');
+            highlight_div.classList.add('highlight');
+            highlight_div.style.display = 'none';
+            document.body.appendChild(highlight_div);
+            all_li.forEach(li=>{
+                li.addEventListener('mousemove',lightOn);
+                li.addEventListener('mouseout',function (){
+                    highlight_div.style.display = 'none';
+                });
+            });
+
+            function lightOn(e){
+                const activeLink = this.getBoundingClientRect();
+                const coords = {
+                    height:activeLink.height,
+                    width:activeLink.width,
+                    left:window.pageXOffset + activeLink.left,
+                    top: window.pageYOffset + activeLink.top
+                }
+                highlight_div.style.height = `${coords.height}px`;
+                highlight_div.style.width = `${coords.width}px`;
+                highlight_div.style.left = `${coords.left}px`;
+                highlight_div.style.top = `${coords.top}px`;
+                highlight_div.style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <ul class="menu" id="menu">
+            <li><a href="">Home</a></li>
+            <li><a href="">Order Status</a></li>
+            <li><a href="">Tweets</a></li>
+            <li><a href="">Read Our History</a></li>
+            <li><a href="">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="wrapper">
+        <p>Lorem ipsum dolor sit amet, <a href="">consectetur</a> adipisicing elit. Est <a href="">explicabo</a> unde natus necessitatibus esse obcaecati distinctio, aut itaque, qui vitae!</p>
+        <p>Aspernatur sapiente quae sint <a href="">soluta</a> modi, atque praesentium laborum pariatur earum <a href="">quaerat</a> cupiditate consequuntur facilis ullam dignissimos, aperiam quam veniam.</p>
+        <p>Cum ipsam quod, incidunt sit ex <a href="">tempore</a> placeat maxime <a href="">corrupti</a> possimus <a href="">veritatis</a> ipsum fugit recusandae est doloremque? Hic, <a href="">quibusdam</a>, nulla.</p>
+        <p>Esse quibusdam, ad, ducimus cupiditate <a href="">nulla</a>, quae magni odit <a href="">totam</a> ut consequatur eveniet sunt quam provident sapiente dicta neque quod.</p>
+        <p>Aliquam <a href="">dicta</a> sequi culpa fugiat <a href="">consequuntur</a> pariatur optio ad minima, maxime <a href="">odio</a>, distinctio magni impedit tempore enim repellendus <a href="">repudiandae</a> quas!</p>
+    </div>
+</body>
+</html>
