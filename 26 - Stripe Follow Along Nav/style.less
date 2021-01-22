@@ -1,0 +1,138 @@
+html{
+  box-sizing: border-box;
+  font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif;
+  min-height:100vh;
+  font-size:16px;
+  background:
+    linear-gradient(45deg, hsla(340, 100%, 55%, 1) 0%, hsla(340, 100%, 55%, 0) 70%),
+    linear-gradient(135deg, hsla(225, 95%, 50%, 1) 10%, hsla(225, 95%, 50%, 0) 80%),
+    linear-gradient(225deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%),
+    linear-gradient(315deg, hsla(35, 95%, 55%, 1) 100%, hsla(35, 95%, 55%, 0) 70%);
+  h2{
+    margin: 20px 10px;
+    color:black;
+    font-size:25px;
+    font-weight: 600;
+  }
+  .top{
+    //导航栏包含块
+    position:relative;
+    margin-top: 30px;
+    display:flex;
+    justify-content:center;
+    width:100%;
+    .dropdownBackground{
+      //白色背景块
+      background:white;
+      position:absolute;
+      display:flex;
+      justify-content:center;
+      box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.15), 0 5px 15px rgba(0,0,0,.1);
+      border-radius: 10px;
+      transition:all 0.3s, opacity 0.1s, translate 0.2s;
+      opacity:0;
+      .arrow {
+        //小箭头
+        position: absolute;
+        width:20px;
+        height:20px;
+        display: block;
+        background:white;
+        transform: translateY(-50%) rotate(45deg);
+      }
+      &.open{
+        opacity: 1;
+      }
+    }
+    .cool{
+      //导航栏
+      display:flex;
+      justify-content:space-around;
+      width:25%;
+      &>li{
+        //导航栏样式
+        padding:10px;
+        background:rgba(0,0,0,0.2);
+        border-radius: 5px;
+        margin: 0 10px;
+      }
+      a{
+        //超链接样式
+        text-decoration:none;
+        color:yellow;
+        font-size:22px;
+      }
+      .dropdown{
+        //下拉内容样式
+        position:absolute;
+        overflow:hidden;
+        opacity:0;
+        transition: opacity 0.2s;
+        .bio{
+          display:flex;
+          padding:15px
+        }
+      }
+      .dropdown1{
+        top:80px;
+        left:500px;
+        height: 170px;
+        line-height: 25px;
+        p{
+          display:block;
+          margin: 10px 15px;
+          width: 350px;
+          align-content: center;
+        }
+        img{
+          object-fit: contain;
+          margin-left:20px;
+        }
+      }
+      .dropdown2{
+        position:absolute;
+        top:80px;
+        left:800px;
+        padding:10px;
+        padding-bottom: 20px;
+        li{
+          padding:8px 0;
+          border-bottom:1px solid gray;
+          a{
+            font-size: 16px;
+            color: orangered;
+          }
+        }
+      }
+      .dropdown3{
+        position:absolute;
+        top:80px;
+        left:990px;
+        padding-bottom: 15px;
+        li{
+          width:130px;
+          height:30px;
+          line-height:30px;
+          background-color:black;
+          margin:10px 20px 10px 10px;
+          a{
+            padding-left: 10px;
+            color:white;
+            font-size:16px;
+          }
+        }
+        li:nth-child(1){background:rgb(1, 159, 233);}
+        li:nth-child(2){background:rgb(59, 89, 152);}
+        li:nth-child(4){background:rgb(255, 198, 0);}
+      }
+    }
+
+    .trigger-enter .dropdown {
+      display: block;
+    }
+
+    .trigger-enter-active .dropdown {
+      opacity: 1;
+    }
+  }
+}

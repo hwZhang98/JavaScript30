@@ -1,0 +1,132 @@
+html {
+  box-sizing: border-box;
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+  min-height: 100vh;
+  font-size: 16px;
+  background: linear-gradient(45deg, hsl(340, 100%, 55%) 0%, hsla(340, 100%, 55%, 0) 70%), linear-gradient(135deg, hsl(225, 95%, 50%) 10%, hsla(225, 95%, 50%, 0) 80%), linear-gradient(225deg, hsl(140, 90%, 50%) 10%, hsla(140, 90%, 50%, 0) 80%), linear-gradient(315deg, hsl(35, 95%, 55%) 100%, hsla(35, 95%, 55%, 0) 70%);
+}
+html h2 {
+  margin: 20px 10px;
+  color: black;
+  font-size: 25px;
+  font-weight: 600;
+}
+html .top {
+  position: relative;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+html .top .dropdownBackground {
+  background: white;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 50px 100px rgba(50, 50, 93, 0.1), 0 15px 35px rgba(50, 50, 93, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: all 0.3s, opacity 0.1s, translate 0.2s;
+  opacity: 0;
+}
+html .top .dropdownBackground .arrow {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  display: block;
+  background: white;
+  transform: translateY(-50%) rotate(45deg);
+}
+html .top .dropdownBackground.open {
+  opacity: 1;
+}
+html .top .cool {
+  display: flex;
+  justify-content: space-around;
+  width: 25%;
+}
+html .top .cool > li {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin: 0 10px;
+}
+html .top .cool a {
+  text-decoration: none;
+  color: yellow;
+  font-size: 22px;
+}
+html .top .cool .dropdown {
+  position: absolute;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+html .top .cool .dropdown .bio {
+  display: flex;
+  padding: 15px;
+}
+html .top .cool .dropdown1 {
+  top: 80px;
+  left: 500px;
+  height: 170px;
+  line-height: 25px;
+}
+html .top .cool .dropdown1 p {
+  display: block;
+  margin: 10px 15px;
+  width: 350px;
+  align-content: center;
+}
+html .top .cool .dropdown1 img {
+  object-fit: contain;
+  margin-left: 20px;
+}
+html .top .cool .dropdown2 {
+  position: absolute;
+  top: 80px;
+  left: 800px;
+  padding: 10px;
+  padding-bottom: 20px;
+}
+html .top .cool .dropdown2 li {
+  padding: 8px 0;
+  border-bottom: 1px solid gray;
+}
+html .top .cool .dropdown2 li a {
+  font-size: 16px;
+  color: orangered;
+}
+html .top .cool .dropdown3 {
+  position: absolute;
+  top: 80px;
+  left: 990px;
+  padding-bottom: 15px;
+}
+html .top .cool .dropdown3 li {
+  width: 130px;
+  height: 30px;
+  line-height: 30px;
+  background-color: black;
+  margin: 10px 20px 10px 10px;
+}
+html .top .cool .dropdown3 li a {
+  padding-left: 10px;
+  color: white;
+  font-size: 16px;
+}
+html .top .cool .dropdown3 li:nth-child(1) {
+  background: #019fe9;
+}
+html .top .cool .dropdown3 li:nth-child(2) {
+  background: #3b5998;
+}
+html .top .cool .dropdown3 li:nth-child(4) {
+  background: #ffc600;
+}
+html .top .trigger-enter .dropdown {
+  display: block;
+}
+html .top .trigger-enter-active .dropdown {
+  opacity: 1;
+}
+/*# sourceMappingURL=style.css.map */
