@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../reset.css">
+    <script>
+        window.onload = function (){
+            const start = document.getElementsByTagName('button')[0];
+            const moles = [...document.querySelectorAll('.mole')];
+            const score = document.querySelector('.score');
+            const holebars = [...document.querySelectorAll('.hole')];
+            const end_time = document.getElementsByClassName('time')[0];
+
+            let begin ;
+            function random_time(){
+                //  min 0.5 max 1
+                return Math.random().toFixed(2) *(1 - 0.5) + 0.5;
+            }
+
+            function random_hole_num(){
+                // 随机生成洞穴数字
+                return Math.floor(Math.random().toFixed(2) * 6);
+            }
+
+            function add_score(){
+                score.textContent = parseInt(score.textContent)+1+'';
+            }
+
+            function pop(){
+                const mole = moles[random_hole_num()];
+                const time = random_time();
+                mole.classList.add('up');
+                setTimeout(()=>{
+                    mole.classList.remove('up');
+                    if(begin) {
+                        pop();
+                    }
+                },time*1000)
+            }
+
+            function play_game(){
+                // 游戏持续时间
+                const play_time = 10000;
+                begin = true;
+                end_time.style.opacity = 1;
+                pop();
+                const end_seconds = Date.now() + play_time;
+                // 显示倒计时
+                end_time.textContent = `倒计时:${Math.ceil((end_seconds - Date.now())/1000)}`;
+                setInterval(function (){
+                    end_time.textContent = `倒计时:${Math.ceil((end_seconds - Date.now())/1000)}`;
+                },1000)
+
+                setTimeout(function (){
+                    begin = false;
+                    score.textContent = 0;
+                    end_time.style.opacity = 0;
+                },play_time)
+            }
+
+            start.addEventListener('click',play_game);
+            holebars.forEach(holebar=>{
+                holebar.addEventListener('click',function (){
+                    this.getElementsByClassName('mole')[0].classList.remove('up');
+                    add_score();
+                })
+            })
+        }
+    </script>
+</head>
+<body>
+    <div class="score-bar">
+        <p>打地鼠！</p>
+        <div class="score">0</div>
+        <div class="time"></div>
+    </div>
+    <div class="game">
+        <div class="hole hole1">
+            <div class="hole-bar"></div>
+            <div class="mole"></div>
+        </div>
+        <div class="hole hole2">
+            <div class="hole-bar"></div>
+            <div class="mole"></div>
+        </div>
+        <div class="hole hole3">
+            <div class="hole-bar"></div>
+            <div class="mole"></div>
+        </div>
+        <div class="hole hole4">
+            <div class="hole-bar"></div>
+            <div class="mole"></div>
+        </div>
+        <div class="hole hole5">
+            <div class="hole-bar"></div>
+            <div class="mole"></div>
+        </div>
+        <div class="hole hole6">
+            <div class="hole-bar"></div>
+            <div class="mole"></div>
+        </div>
+    </div>
+    <button>开始！</button>
+
+</body>
+</html>

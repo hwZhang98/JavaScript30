@@ -34,7 +34,7 @@ function add_timer(seconds){
             return
         }
         count_down_display(sec);
-    },1000);
+    },1000);　
 }
 
 function startTimer() {
