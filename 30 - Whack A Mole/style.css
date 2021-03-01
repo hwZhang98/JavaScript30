@@ -1,0 +1,88 @@
+html {
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: #ffc600;
+}
+html .score-bar {
+  font-family: 'Amatic SC', cursive;
+  height: 200px;
+  line-height: 200px;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: 100;
+}
+html .score-bar .score {
+  background-color: #ffd133;
+  width: 80px;
+  line-height: 100px;
+  align-self: center;
+  text-align: center;
+  height: 100px;
+}
+html .score-bar .time {
+  opacity: 0;
+  margin-left: 20px;
+  width: 200px;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 50px;
+  align-self: center;
+  text-align: center;
+  height: 50px;
+}
+html .game {
+  margin: 0 auto;
+  width: 600px;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+html .game .hole {
+  position: relative;
+  height: 100px;
+  width: 170px;
+  overflow: hidden;
+}
+html .game .hole .hole-bar {
+  position: absolute;
+  background-size: 170px 170px;
+  background-image: url("dirt.svg");
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+}
+html .game .hole .mole {
+  top: 100%;
+  position: absolute;
+  background-image: url("mole.svg");
+  background-size: 90% 100%;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s;
+  z-index: 1;
+}
+html .game .hole .mole.up {
+  top: 0;
+}
+html button {
+  height: 50px;
+  width: 100px;
+  font-size: 25px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  color: green;
+  border-radius: 15px;
+  outline: none;
+  box-shadow: #ff8800;
+  background-color: yellow;
+  cursor: pointer;
+}
+html button:active,
+html button:hover {
+  transform: scale(0.9);
+}
+/*# sourceMappingURL=style.css.map */
